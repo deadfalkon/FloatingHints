@@ -3,7 +3,7 @@ apply plugin: 'signing'
 
 group = 'com.malmstein'
 ext.packaging = 'aar'
-version = "0.0.1"
+version = "0.0.2"
 
 def isDevBuild
 def isCiBuild
@@ -20,6 +20,7 @@ if (hasProperty("release")) {
     sonatypeRepositoryUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
 } else {
     isDevBuild = true
+    version += "-SNAPSHOT"
 }
 
 uploadArchives {
